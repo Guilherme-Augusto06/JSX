@@ -21,7 +21,8 @@ const App = () => {
     const textContainerStyle = {
         flex: '1',
         padding: '15px',
-        textAlign: 'center',
+        textAlign: 'left',
+        
     };
 
     const buttonStyle = {
@@ -37,10 +38,13 @@ const App = () => {
         backgroundColor: 'black',
         color: 'white',
         border: 'none',
+        // Espaçamento entre os botões
+        margin: '0 5px',
+
     };
 
     const quantityStyle = {
-        padding: '0 10px',
+        padding: '0 10px', // Espaçamento entre o número e os botões
     };
 
     const handleAddToCart = () => {
@@ -71,6 +75,7 @@ const App = () => {
                     <span className="badge badge-primary">{quantidade}</span>
                 </div>
             </nav>
+
             <div className="card" style={cardStyle}>
                 <img
                     src="./img/camisa-vermelha.jpg"
@@ -79,11 +84,14 @@ const App = () => {
                     style={imageStyle}
                 />
                 <div style={textContainerStyle}>
+                    <p className="card-text">
+                        R$ {preco.toFixed(2)}
+                    </p>
                     <h5 className="card-title">{produto}</h5>
                     <p className="card-text">
                         Essa é uma camisa vermelha feita de algodão com detalhes preto e vermelho.
                     </p>
-                    <h3>R$ {preco}</h3>
+  
                     <div className="btn-group" style={{ justifyContent: 'center' }}>
                         <button className="btn btn-dark" style={blackButtonStyle} onClick={handleDecrement}>
                             -
@@ -93,11 +101,9 @@ const App = () => {
                             +
                         </button>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <button className="btn btn-primary" style={{ ...buttonStyle, ...blackButtonStyle }} onClick={handleAddToCart}>
-                            Adicionar ao Carrinho
-                        </button>
-                    </div>
+                    <button className="btn btn-primary" style={{ ...buttonStyle, ...blackButtonStyle }} onClick={handleAddToCart}>
+                        Adicionar ao Carrinho
+                    </button>
                     <p>Valor Total: R$ {valorTotal.toFixed(2)}</p>
                 </div>
             </div>
